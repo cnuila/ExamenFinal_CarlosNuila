@@ -23,6 +23,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
      */
     public InterfazPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -1012,6 +1013,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 an.setNaveEspacial(nuevaSonda);
                 an.escribirArchivo();
                 JOptionPane.showMessageDialog(jd_crearNave, "Se ha creado una Sonda Espacial");
+                jd_crearNave.dispose();
             }
             if (rb_naveTripulada.isSelected()) {
                 llenarComboBoxAstronautas();
@@ -1290,7 +1292,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
