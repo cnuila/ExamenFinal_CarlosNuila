@@ -5,28 +5,33 @@
  */
 package examenfinal_carlosnuila;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Carlos Nuila
  */
-public class Planeta {
+public class Planeta implements Serializable {
     
     private String nombre;
     private double temperaturaMedia;
-    private boolean anillos;
+    private String anillos;
     private String tipoSuperficie;
     private double distanciaAtierra;
+    
+    private static final long SerialVersionUID = 1008L;
 
     public Planeta() {
     }
-    
-    public Planeta(String nombre, double temperaturaMedia, boolean anillos, String tipoSuperficie, double distanciaAtierra) {
+
+    public Planeta(String nombre, double temperaturaMedia, String anillos, String tipoSuperficie, double distanciaAtierra) {
         this.nombre = nombre;
         this.temperaturaMedia = temperaturaMedia;
         this.anillos = anillos;
         this.tipoSuperficie = tipoSuperficie;
         this.distanciaAtierra = distanciaAtierra;
     }
+    
 
     public String getNombre() {
         return nombre;
@@ -44,11 +49,11 @@ public class Planeta {
         this.temperaturaMedia = temperaturaMedia;
     }
 
-    public boolean isAnillos() {
+    public String getAnillos() {
         return anillos;
     }
 
-    public void setAnillos(boolean anillos) {
+    public void setAnillos(String anillos) {
         this.anillos = anillos;
     }
 

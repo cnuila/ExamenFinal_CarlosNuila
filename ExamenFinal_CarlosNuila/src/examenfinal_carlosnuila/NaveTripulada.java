@@ -49,7 +49,9 @@ public class NaveTripulada extends NaveEspacial{
             todosPesos += temp.getPeso();
         }
         double ida = distancia / (velocidad * (Math.pow(todosPesos, 2)/100));
+        double vuelta = distancia / (velocidad * (todosPesos/100));
         temporal.add(ida);
+        temporal.add(vuelta);
         velocidad = ida;
         return temporal;
     }

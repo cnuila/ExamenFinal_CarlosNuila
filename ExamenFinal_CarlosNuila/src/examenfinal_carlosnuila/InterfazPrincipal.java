@@ -5,6 +5,12 @@
  */
 package examenfinal_carlosnuila;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Carlos Nuila
@@ -27,19 +33,816 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popUp_planeta = new javax.swing.JPopupMenu();
+        jmi_modificarPlaneta = new javax.swing.JMenuItem();
+        jmi_eliminarPlaneta = new javax.swing.JMenuItem();
+        popUp_astronauta = new javax.swing.JPopupMenu();
+        jmi_modificarAstronauta = new javax.swing.JMenuItem();
+        jmi_eliminarAstronauta = new javax.swing.JMenuItem();
+        jd_crearAstronauta = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jt_nombre = new javax.swing.JTextField();
+        jt_nacionalidad = new javax.swing.JTextField();
+        jt_sueldo = new javax.swing.JTextField();
+        sp_añosExperiencia = new javax.swing.JSpinner();
+        rb_masculino = new javax.swing.JRadioButton();
+        rb_femenino = new javax.swing.JRadioButton();
+        rb_otro = new javax.swing.JRadioButton();
+        jt_peso = new javax.swing.JTextField();
+        jt_CREARastronauta = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jd_crearPlaneta = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jt_nombrePlaneta = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jt_temperaturaMedia = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        rb_si = new javax.swing.JRadioButton();
+        rb_no = new javax.swing.JRadioButton();
+        jLabel14 = new javax.swing.JLabel();
+        jt_tipoSuperficie = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jt_distanciaTierra = new javax.swing.JTextField();
+        jb_CREARplaneta = new javax.swing.JButton();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jd_crearNave = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jt_numeroSerie = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        cb_planetas = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jt_velocidad = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        rb_sondaEspacial = new javax.swing.JRadioButton();
+        rb_naveTripulada = new javax.swing.JRadioButton();
+        jb_CREARnave = new javax.swing.JButton();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jd_modificarAstronauta = new javax.swing.JDialog();
+        jt_nombreModificar = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jt_nacionalidadModificar = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jt_sueldoModificar = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        sp_añosExperienciaModificar = new javax.swing.JSpinner();
+        jLabel26 = new javax.swing.JLabel();
+        rb_masculino1 = new javax.swing.JRadioButton();
+        rb_femenino1 = new javax.swing.JRadioButton();
+        rb_otro1 = new javax.swing.JRadioButton();
+        jLabel27 = new javax.swing.JLabel();
+        jt_pesoModificar = new javax.swing.JTextField();
+        jt_modificarAstronuata = new javax.swing.JButton();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        jd_modificarPlaneta = new javax.swing.JDialog();
+        jb_modifcarPlaneta = new javax.swing.JButton();
+        jt_distanciaTierramodifcar = new javax.swing.JTextField();
+        jt_tipoSuperficieModifcar = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        rb_si1 = new javax.swing.JRadioButton();
+        rb_no1 = new javax.swing.JRadioButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jt_temperaturaMediamodificar = new javax.swing.JTextField();
+        jt_nombrePlanetaModificar = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        jd_naveTripulada = new javax.swing.JDialog();
+        jLabel34 = new javax.swing.JLabel();
+        cb_astronautas = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        jt_lugarDestino = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jb_pasar = new javax.swing.JButton();
+        jb_listo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jb_adminAstronauta = new javax.swing.JButton();
+        jb_adminPlaneta = new javax.swing.JButton();
+        jb_adminNaves = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_planeta = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_astronauta = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_expedicion = new javax.swing.JTable();
+
+        jmi_modificarPlaneta.setText("jMenuItem1");
+        popUp_planeta.add(jmi_modificarPlaneta);
+
+        jmi_eliminarPlaneta.setText("jMenuItem2");
+        popUp_planeta.add(jmi_eliminarPlaneta);
+
+        jmi_modificarAstronauta.setText("jMenuItem3");
+        popUp_astronauta.add(jmi_modificarAstronauta);
+
+        jmi_eliminarAstronauta.setText("jMenuItem4");
+        popUp_astronauta.add(jmi_eliminarAstronauta);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Astronauta");
+
+        jLabel4.setText("Nombre:");
+
+        jLabel5.setText("Nacionalidad:");
+
+        jLabel6.setText("Sueldo:");
+
+        jLabel7.setText("Años de Experiencia:");
+
+        jLabel8.setText("Sexo:");
+
+        jLabel9.setText("Peso:");
+
+        sp_añosExperiencia.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        buttonGroup1.add(rb_masculino);
+        rb_masculino.setText("Masculino");
+
+        buttonGroup1.add(rb_femenino);
+        rb_femenino.setText("Femenino");
+
+        buttonGroup1.add(rb_otro);
+        rb_otro.setText("Prefiero No Decirlo");
+
+        jt_CREARastronauta.setText("Crear Astronauta");
+        jt_CREARastronauta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_CREARastronautaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearAstronautaLayout = new javax.swing.GroupLayout(jd_crearAstronauta.getContentPane());
+        jd_crearAstronauta.getContentPane().setLayout(jd_crearAstronautaLayout);
+        jd_crearAstronautaLayout.setHorizontalGroup(
+            jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sp_añosExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jt_CREARastronauta)
+                                    .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rb_masculino)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rb_femenino)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_otro))))
+                    .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jd_crearAstronautaLayout.setVerticalGroup(
+            jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearAstronautaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jt_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(sp_añosExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(rb_masculino)
+                    .addComponent(rb_femenino)
+                    .addComponent(rb_otro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jt_CREARastronauta)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setText("Planeta");
+
+        jLabel11.setText("Nombre:");
+
+        jLabel12.setText("Temperatura Media:");
+
+        jLabel13.setText("Anillos:");
+
+        buttonGroup2.add(rb_si);
+        rb_si.setText("Sí");
+
+        buttonGroup2.add(rb_no);
+        rb_no.setText("No");
+
+        jLabel14.setText("Tipo Superficie:");
+
+        jLabel15.setText("Distancia a Tierra:");
+
+        jb_CREARplaneta.setText("Crear Planeta");
+        jb_CREARplaneta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CREARplanetaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearPlanetaLayout = new javax.swing.GroupLayout(jd_crearPlaneta.getContentPane());
+        jd_crearPlaneta.getContentPane().setLayout(jd_crearPlanetaLayout);
+        jd_crearPlanetaLayout.setHorizontalGroup(
+            jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_temperaturaMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_nombrePlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_si)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_no))
+                            .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearPlanetaLayout.createSequentialGroup()
+                                    .addComponent(jLabel15)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jt_distanciaTierra))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearPlanetaLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jt_tipoSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jb_CREARplaneta)))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearPlanetaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(114, 114, 114))
+        );
+        jd_crearPlanetaLayout.setVerticalGroup(
+            jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearPlanetaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jt_nombrePlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jt_temperaturaMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(rb_si)
+                    .addComponent(rb_no))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jt_tipoSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jt_distanciaTierra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_CREARplaneta)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setText("Nave Espacial");
+
+        jLabel17.setText("Número de Serie:");
+
+        jLabel18.setText("Destino:");
+
+        jLabel19.setText("Velocidad:");
+
+        jLabel20.setText("Tipo Nave:");
+
+        buttonGroup3.add(rb_sondaEspacial);
+        rb_sondaEspacial.setSelected(true);
+        rb_sondaEspacial.setText("Sonda Espacial");
+
+        buttonGroup3.add(rb_naveTripulada);
+        rb_naveTripulada.setText("Nave Tripulada");
+
+        jb_CREARnave.setText("Crear Nave");
+        jb_CREARnave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CREARnaveMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearNaveLayout = new javax.swing.GroupLayout(jd_crearNave.getContentPane());
+        jd_crearNave.getContentPane().setLayout(jd_crearNaveLayout);
+        jd_crearNaveLayout.setHorizontalGroup(
+            jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_planetas, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_numeroSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_sondaEspacial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_naveTripulada))))
+                    .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel16)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearNaveLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jb_CREARnave)
+                .addGap(111, 111, 111))
+        );
+        jd_crearNaveLayout.setVerticalGroup(
+            jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearNaveLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jt_numeroSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(cb_planetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(jt_velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearNaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(rb_sondaEspacial)
+                    .addComponent(rb_naveTripulada))
+                .addGap(18, 18, 18)
+                .addComponent(jb_CREARnave)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jLabel21.setText("Nombre:");
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setText("Astronauta");
+
+        jLabel23.setText("Nacionalidad:");
+
+        jLabel24.setText("Sueldo:");
+
+        jLabel25.setText("Años de Experiencia:");
+
+        sp_añosExperienciaModificar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        jLabel26.setText("Sexo:");
+
+        buttonGroup4.add(rb_masculino1);
+        rb_masculino1.setText("Masculino");
+
+        buttonGroup4.add(rb_femenino1);
+        rb_femenino1.setText("Femenino");
+
+        buttonGroup4.add(rb_otro1);
+        rb_otro1.setText("Prefiero No Decirlo");
+
+        jLabel27.setText("Peso:");
+
+        jt_modificarAstronuata.setText("Modifcar Astronauta");
+        jt_modificarAstronuata.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_modificarAstronuataMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_modificarAstronautaLayout = new javax.swing.GroupLayout(jd_modificarAstronauta.getContentPane());
+        jd_modificarAstronauta.getContentPane().setLayout(jd_modificarAstronautaLayout);
+        jd_modificarAstronautaLayout.setHorizontalGroup(
+            jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_nacionalidadModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_nombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_sueldoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sp_añosExperienciaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_pesoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jt_modificarAstronuata)
+                                    .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                                        .addComponent(jLabel26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rb_masculino1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rb_femenino1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_otro1))))
+                    .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jd_modificarAstronautaLayout.setVerticalGroup(
+            jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarAstronautaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jt_nombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jt_nacionalidadModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jt_sueldoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(sp_añosExperienciaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(rb_masculino1)
+                    .addComponent(rb_femenino1)
+                    .addComponent(rb_otro1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarAstronautaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jt_pesoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jt_modificarAstronuata)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jb_modifcarPlaneta.setText("Modifcar Planeta");
+        jb_modifcarPlaneta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modifcarPlanetaMouseClicked(evt);
+            }
+        });
+
+        jLabel28.setText("Distancia a Tierra:");
+
+        jLabel29.setText("Tipo Superficie:");
+
+        buttonGroup5.add(rb_si1);
+        rb_si1.setText("Sí");
+
+        buttonGroup5.add(rb_no1);
+        rb_no1.setText("No");
+
+        jLabel30.setText("Anillos:");
+
+        jLabel31.setText("Temperatura Media:");
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("Planeta");
+
+        jLabel33.setText("Nombre:");
+
+        javax.swing.GroupLayout jd_modificarPlanetaLayout = new javax.swing.GroupLayout(jd_modificarPlaneta.getContentPane());
+        jd_modificarPlaneta.getContentPane().setLayout(jd_modificarPlanetaLayout);
+        jd_modificarPlanetaLayout.setHorizontalGroup(
+            jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_temperaturaMediamodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_nombrePlanetaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_si1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_no1))
+                            .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_modificarPlanetaLayout.createSequentialGroup()
+                                    .addComponent(jLabel28)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jt_distanciaTierramodifcar))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_modificarPlanetaLayout.createSequentialGroup()
+                                    .addComponent(jLabel29)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jt_tipoSuperficieModifcar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jb_modifcarPlaneta)))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificarPlanetaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(114, 114, 114))
+        );
+        jd_modificarPlanetaLayout.setVerticalGroup(
+            jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarPlanetaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jt_nombrePlanetaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(jt_temperaturaMediamodificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(rb_si1)
+                    .addComponent(rb_no1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jt_tipoSuperficieModifcar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_modificarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jt_distanciaTierramodifcar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_modifcarPlaneta)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel34.setText("Nave Tripulada");
+
+        jLabel35.setText("Lugar de Destino:");
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jList1);
+
+        jb_pasar.setText("----->");
+
+        jb_listo.setText("Listo");
+
+        javax.swing.GroupLayout jd_naveTripuladaLayout = new javax.swing.GroupLayout(jd_naveTripulada.getContentPane());
+        jd_naveTripulada.getContentPane().setLayout(jd_naveTripuladaLayout);
+        jd_naveTripuladaLayout.setHorizontalGroup(
+            jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                .addGroup(jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel34))
+                    .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                        .addGroup(jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_astronautas, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_naveTripuladaLayout.createSequentialGroup()
+                                        .addComponent(jb_pasar)
+                                        .addGap(9, 9, 9))))
+                            .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(jb_listo)))
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jt_lugarDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        jd_naveTripuladaLayout.setVerticalGroup(
+            jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel34)
+                .addGap(17, 17, 17)
+                .addGroup(jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jt_lugarDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jd_naveTripuladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd_naveTripuladaLayout.createSequentialGroup()
+                        .addComponent(cb_astronautas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jb_pasar)
+                        .addGap(45, 45, 45)
+                        .addComponent(jb_listo))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jb_adminAstronauta.setText("Crear Astronauta");
+        jb_adminAstronauta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_adminAstronautaMouseClicked(evt);
+            }
+        });
+
+        jb_adminPlaneta.setText("Crear Planeta");
+        jb_adminPlaneta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_adminPlanetaMouseClicked(evt);
+            }
+        });
+
+        jb_adminNaves.setText("Crear Naves");
+        jb_adminNaves.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_adminNavesMouseClicked(evt);
+            }
+        });
+
+        jt_planeta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Temperatura", "Anillos", "Tipo Superficie", "Distancia a la Tierra"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jt_planeta);
+
+        jLabel1.setText("Planeta:");
+
+        jLabel2.setText("Astronauta:");
+
+        jt_astronauta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Nacionalidad", "Sueldo", "Años de Experiencia", "Sexo", "Peso"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_astronauta);
+
+        jt_expedicion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jt_expedicion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_adminPlaneta)
+                            .addComponent(jb_adminAstronauta))
+                        .addGap(22, 22, 22)
+                        .addComponent(jb_adminNaves))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jb_adminNaves, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jb_adminAstronauta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_adminPlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -55,6 +858,229 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_adminAstronautaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminAstronautaMouseClicked
+        // TODO add your handling code here:
+        jd_crearAstronauta.pack();
+        jd_crearAstronauta.setModal(true);
+        jd_crearAstronauta.setLocationRelativeTo(this);
+        jd_crearAstronauta.setVisible(true);
+    }//GEN-LAST:event_jb_adminAstronautaMouseClicked
+
+    private void jb_adminNavesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminNavesMouseClicked
+        // TODO add your handling code here:
+        jd_crearNave.pack();
+        jd_crearNave.setModal(true);
+        jd_crearNave.setLocationRelativeTo(this);
+        jd_crearNave.setVisible(true);
+    }//GEN-LAST:event_jb_adminNavesMouseClicked
+
+    private void jb_adminPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminPlanetaMouseClicked
+        // TODO add your handling code here:
+        jd_crearPlaneta.pack();
+        jd_crearPlaneta.setModal(true);
+        jd_crearPlaneta.setVisible(true);
+    }//GEN-LAST:event_jb_adminPlanetaMouseClicked
+
+    private void jt_CREARastronautaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_CREARastronautaMouseClicked
+        // TODO add your handling code here:
+        try {
+            String nombre = jt_nombre.getText();
+            String nacionalidad = jt_nacionalidad.getText();
+            double sueldo = Double.parseDouble(jt_sueldo.getText());
+            int añosExperiencia = (int) sp_añosExperiencia.getValue();
+            String sexo = "";
+            if (rb_masculino.isSelected()) {
+                sexo = "Masculino";
+            }
+            if (rb_femenino.isSelected()) {
+                sexo = "Femenino";
+            }
+            if (rb_otro.isSelected()) {
+                sexo = "Desconocido";
+            }
+            double peso = Double.parseDouble(jt_peso.getText());
+
+            Astronauta nuevoAstronauta = new Astronauta(nombre, nacionalidad, sueldo, añosExperiencia, sexo, peso);
+            AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
+            aas.cargarArchivo();
+            aas.setAstronauta(nuevoAstronauta);
+            aas.escribirArchivo();
+            llenarTablaAstronautas();
+            JOptionPane.showMessageDialog(jd_crearAstronauta, "Se ha creado un astronauta");
+
+            jt_nombre.setText("");
+            jt_nacionalidad.setText("");
+            jt_sueldo.setText("");
+            sp_añosExperiencia.setValue(0);
+            rb_masculino.setSelected(true);
+            rb_femenino.setSelected(false);
+            rb_otro.setSelected(false);
+            jt_peso.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_crearAstronauta, "Ocurrió un error fatal");
+        }
+    }//GEN-LAST:event_jt_CREARastronautaMouseClicked
+
+    private void jb_CREARplanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CREARplanetaMouseClicked
+        // TODO add your handling code here:
+        try {
+            String nombre = jt_nombrePlaneta.getText();
+            double temperaturaMedia = Double.parseDouble(jt_temperaturaMedia.getText());
+            String anillos = "";
+            if (rb_si.isSelected()) {
+                anillos = "Si";
+            } else {
+                anillos = "No";
+            }
+            String tipoSuperficie = jt_tipoSuperficie.getText();
+            double distanciaAtierra = Double.parseDouble(jt_distanciaTierra.getText());
+
+            Planeta nuevoPlaneta = new Planeta(nombre, temperaturaMedia, anillos, tipoSuperficie, distanciaAtierra);
+            AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+            ap.setPlaneta(nuevoPlaneta);
+            ap.escribirArchivo();
+            llenarTablaPlanetas();
+            JOptionPane.showMessageDialog(jd_crearPlaneta, "Se ha creado un planeta");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_crearPlaneta, "Ocurrió un error fatal");
+        }
+    }//GEN-LAST:event_jb_CREARplanetaMouseClicked
+
+    private void jb_CREARnaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CREARnaveMouseClicked
+        // TODO add your handling code here:
+        try {
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_crearAstronauta, "Ocurrió un error fatal");
+        }
+    }//GEN-LAST:event_jb_CREARnaveMouseClicked
+
+    private void jt_modificarAstronuataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_modificarAstronuataMouseClicked
+        // TODO add your handling code here:
+        try {
+            int seleccionado = jt_astronauta.getSelectedRow();
+            String nombre = jt_nombreModificar.getText();
+            String nacionalidad = jt_nacionalidadModificar.getText();
+            double sueldo = Double.parseDouble(jt_sueldoModificar.getText());
+            int añosExperiencia = (int) sp_añosExperienciaModificar.getValue();
+            String sexo = "";
+            if (rb_masculino1.isSelected()) {
+                sexo = "Masculino";
+            }
+            if (rb_femenino1.isSelected()) {
+                sexo = "Femenino";
+            }
+            if (rb_otro1.isSelected()) {
+                sexo = "Desconocido";
+            }
+            double peso = Double.parseDouble(jt_pesoModificar.getText());
+
+            Astronauta nuevoAstronauta = new Astronauta(nombre, nacionalidad, sueldo, añosExperiencia, sexo, peso);
+            AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
+            aas.cargarArchivo();
+            aas.getListaAstronauta().set(seleccionado, nuevoAstronauta);
+            aas.escribirArchivo();
+            llenarTablaAstronautas();
+            JOptionPane.showMessageDialog(jd_modificarAstronauta, "Se ha modificado un astronauta");
+
+            jt_nombre.setText("");
+            jt_nacionalidad.setText("");
+            jt_sueldo.setText("");
+            sp_añosExperiencia.setValue(0);
+            rb_masculino.setSelected(true);
+            rb_femenino.setSelected(false);
+            rb_otro.setSelected(false);
+            jt_peso.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_modificarAstronauta, "Ocurrió un error fatal");
+        }
+    }//GEN-LAST:event_jt_modificarAstronuataMouseClicked
+
+    private void jb_modifcarPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modifcarPlanetaMouseClicked
+        // TODO add your handling code here:
+        try {
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_crearAstronauta, "Ocurrió un error fatal");
+        }
+    }//GEN-LAST:event_jb_modifcarPlanetaMouseClicked
+
+    public void llenarTablaAstronautas() {
+        AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
+        aas.cargarArchivo();
+        jt_astronauta.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Nacionalidad", "Sueldo", "Años de Experiencia", "Sexo", "Peso"
+                }
+        ) {
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+        String[] temporal = new String[6];
+        DefaultTableModel modeloTabla = (DefaultTableModel) jt_astronauta.getModel();
+        for (int i = 0; i < aas.getListaAstronauta().size(); i++) {
+            temporal[0] = aas.getListaAstronauta().get(i).getNombre();
+            temporal[1] = aas.getListaAstronauta().get(i).getNacionalidad();
+            temporal[2] = String.valueOf(aas.getListaAstronauta().get(i).getSueldo());
+            temporal[3] = String.valueOf(aas.getListaAstronauta().get(i).getAñoExperiencia());
+            temporal[4] = aas.getListaAstronauta().get(i).getSexo();
+            temporal[5] = String.valueOf(aas.getListaAstronauta().get(i).getPeso());
+            modeloTabla.addRow(temporal);
+            jt_astronauta.setModel(modeloTabla);
+        }
+    }
+
+    public void llenarTablaPlanetas() {
+        AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+        ap.cargarArchivo();
+        
+        jt_planeta.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Temperatura", "Anillos", "Tipo Superficie", "Distancia a la Tierra"
+                }
+        ) {
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false
+            };
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+        String[] temporal = new String[5];
+        DefaultTableModel modeloTabla = (DefaultTableModel) jt_planeta.getModel();
+        for (int i = 0; i < ap.getlistaPlanetas().size(); i++) {
+            temporal[0] = ap.getlistaPlanetas().get(i).getNombre();
+            temporal[1] = String.valueOf(ap.getlistaPlanetas().get(i).getTemperaturaMedia());
+            temporal[2] = ap.getlistaPlanetas().get(i).getAnillos();
+            temporal[3] = ap.getlistaPlanetas().get(i).getTipoSuperficie();
+            temporal[4] = String.valueOf(ap.getlistaPlanetas().get(i).getDistanciaAtierra());
+            modeloTabla.addRow(temporal);
+            jt_planeta.setModel(modeloTabla);
+        }
+    }
+    
+    public void llenarComboBoxPlanetas(){
+        AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+        ap.cargarArchivo();
+        DefaultComboBoxModel modeloComboBox = new DefaultComboBoxModel(ap.getlistaPlanetas().toArray());
+        cb_planetas.setModel(modeloComboBox);
+    }
+
+    public void llenarComboBoxAstronautas() {
+        AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
+        aas.cargarArchivo();
+        DefaultComboBoxModel modeloComboBox = new DefaultComboBoxModel(aas.getListaAstronauta().toArray());
+        cb_astronautas.setModel(modeloComboBox);
+    }
 
     /**
      * @param args the command line arguments
@@ -92,6 +1118,111 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JComboBox<String> cb_astronautas;
+    private javax.swing.JComboBox<String> cb_planetas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JButton jb_CREARnave;
+    private javax.swing.JButton jb_CREARplaneta;
+    private javax.swing.JButton jb_adminAstronauta;
+    private javax.swing.JButton jb_adminNaves;
+    private javax.swing.JButton jb_adminPlaneta;
+    private javax.swing.JButton jb_listo;
+    private javax.swing.JButton jb_modifcarPlaneta;
+    private javax.swing.JButton jb_pasar;
+    private javax.swing.JDialog jd_crearAstronauta;
+    private javax.swing.JDialog jd_crearNave;
+    private javax.swing.JDialog jd_crearPlaneta;
+    private javax.swing.JDialog jd_modificarAstronauta;
+    private javax.swing.JDialog jd_modificarPlaneta;
+    private javax.swing.JDialog jd_naveTripulada;
+    private javax.swing.JMenuItem jmi_eliminarAstronauta;
+    private javax.swing.JMenuItem jmi_eliminarPlaneta;
+    private javax.swing.JMenuItem jmi_modificarAstronauta;
+    private javax.swing.JMenuItem jmi_modificarPlaneta;
+    private javax.swing.JButton jt_CREARastronauta;
+    private javax.swing.JTable jt_astronauta;
+    private javax.swing.JTextField jt_distanciaTierra;
+    private javax.swing.JTextField jt_distanciaTierramodifcar;
+    private javax.swing.JTable jt_expedicion;
+    private javax.swing.JTextField jt_lugarDestino;
+    private javax.swing.JButton jt_modificarAstronuata;
+    private javax.swing.JTextField jt_nacionalidad;
+    private javax.swing.JTextField jt_nacionalidadModificar;
+    private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_nombreModificar;
+    private javax.swing.JTextField jt_nombrePlaneta;
+    private javax.swing.JTextField jt_nombrePlanetaModificar;
+    private javax.swing.JTextField jt_numeroSerie;
+    private javax.swing.JTextField jt_peso;
+    private javax.swing.JTextField jt_pesoModificar;
+    private javax.swing.JTable jt_planeta;
+    private javax.swing.JTextField jt_sueldo;
+    private javax.swing.JTextField jt_sueldoModificar;
+    private javax.swing.JTextField jt_temperaturaMedia;
+    private javax.swing.JTextField jt_temperaturaMediamodificar;
+    private javax.swing.JTextField jt_tipoSuperficie;
+    private javax.swing.JTextField jt_tipoSuperficieModifcar;
+    private javax.swing.JTextField jt_velocidad;
+    private javax.swing.JPopupMenu popUp_astronauta;
+    private javax.swing.JPopupMenu popUp_planeta;
+    private javax.swing.JRadioButton rb_femenino;
+    private javax.swing.JRadioButton rb_femenino1;
+    private javax.swing.JRadioButton rb_masculino;
+    private javax.swing.JRadioButton rb_masculino1;
+    private javax.swing.JRadioButton rb_naveTripulada;
+    private javax.swing.JRadioButton rb_no;
+    private javax.swing.JRadioButton rb_no1;
+    private javax.swing.JRadioButton rb_otro;
+    private javax.swing.JRadioButton rb_otro1;
+    private javax.swing.JRadioButton rb_si;
+    private javax.swing.JRadioButton rb_si1;
+    private javax.swing.JRadioButton rb_sondaEspacial;
+    private javax.swing.JSpinner sp_añosExperiencia;
+    private javax.swing.JSpinner sp_añosExperienciaModificar;
     // End of variables declaration//GEN-END:variables
 }

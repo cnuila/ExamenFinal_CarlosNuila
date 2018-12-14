@@ -19,6 +19,8 @@ public class Astronauta implements Serializable {
     private int añoExperiencia;
     private String sexo;
     private double peso;
+    
+    private static final long SerialVersionUID = 1008;
 
     public Astronauta() {
     }

@@ -5,17 +5,20 @@
  */
 package examenfinal_carlosnuila;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Carlos Nuila
  */
-public abstract class NaveEspacial {
+public abstract class NaveEspacial implements Serializable {
     
     protected int numeroSerie;
     protected Planeta planetaDestino;
     protected double velocidad;
+    
+    private static final long SerialVersionUID = 1098L;
 
     public NaveEspacial() {
     }
