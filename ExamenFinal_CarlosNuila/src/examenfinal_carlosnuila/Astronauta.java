@@ -82,7 +82,10 @@ public class Astronauta implements Serializable {
         this.peso = peso;
     }
 
-    
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
     
     

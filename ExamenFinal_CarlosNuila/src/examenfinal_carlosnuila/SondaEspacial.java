@@ -23,6 +23,7 @@ public class SondaEspacial extends NaveEspacial{
         super(numeroSerie, planetaDestino, velocidad);
         this.material = material;
         this.peso = peso;
+        tipo = "Sonda Espacial";
     }
 
     public String getMaterial() {

@@ -17,6 +17,7 @@ public abstract class NaveEspacial implements Serializable {
     protected int numeroSerie;
     protected Planeta planetaDestino;
     protected double velocidad;
+    protected String tipo;
     
     private static final long SerialVersionUID = 1098L;
 
@@ -52,6 +53,16 @@ public abstract class NaveEspacial implements Serializable {
     public void setVelocidad(double velocidad) {
         this.velocidad = velocidad;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
     
     public abstract ArrayList<Double> calcularTiempo(double distancia);
     

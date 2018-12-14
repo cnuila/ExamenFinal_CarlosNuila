@@ -19,10 +19,10 @@ public class NaveTripulada extends NaveEspacial{
     public NaveTripulada() {
     }
     
-
     public NaveTripulada(String lugarDespeje, int numeroSerie, Planeta planetaDestino, double velocidad) {
         super(numeroSerie, planetaDestino, velocidad);
         this.lugarDespeje = lugarDespeje;
+        tipo = "Nave Tripulada";
     }
 
     public String getLugarDespeje() {
