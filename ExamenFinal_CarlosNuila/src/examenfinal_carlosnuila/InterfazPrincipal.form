@@ -12,11 +12,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_modificarPlanetaActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_eliminarPlaneta">
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_eliminarPlanetaActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
@@ -30,11 +36,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_modificarAstronautaActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_eliminarAstronauta">
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_eliminarAstronautaActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
@@ -994,7 +1006,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lugar de Destino:"/>
+            <Property name="text" type="java.lang.String" value="Lugar de Despeje:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jt_lugarDestino">
@@ -1006,7 +1018,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="jList1">
+            <Component class="javax.swing.JList" name="jl_misAstronautas">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new DefaultListModel()" type="code"/>
@@ -1022,11 +1034,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="-----&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_pasarMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jb_listo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Listo"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_listoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1158,6 +1176,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jt_planetaMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1191,6 +1212,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jt_astronautaMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

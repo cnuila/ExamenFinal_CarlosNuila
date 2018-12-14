@@ -5,6 +5,7 @@
  */
 package examenfinal_carlosnuila;
 
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
@@ -124,7 +125,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jt_lugarDestino = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_misAstronautas = new javax.swing.JList<>();
         jb_pasar = new javax.swing.JButton();
         jb_listo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -141,15 +142,35 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jt_expedicion = new javax.swing.JTable();
 
         jmi_modificarPlaneta.setText("jMenuItem1");
+        jmi_modificarPlaneta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarPlanetaActionPerformed(evt);
+            }
+        });
         popUp_planeta.add(jmi_modificarPlaneta);
 
         jmi_eliminarPlaneta.setText("jMenuItem2");
+        jmi_eliminarPlaneta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarPlanetaActionPerformed(evt);
+            }
+        });
         popUp_planeta.add(jmi_eliminarPlaneta);
 
         jmi_modificarAstronauta.setText("jMenuItem3");
+        jmi_modificarAstronauta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarAstronautaActionPerformed(evt);
+            }
+        });
         popUp_astronauta.add(jmi_modificarAstronauta);
 
         jmi_eliminarAstronauta.setText("jMenuItem4");
+        jmi_eliminarAstronauta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarAstronautaActionPerformed(evt);
+            }
+        });
         popUp_astronauta.add(jmi_eliminarAstronauta);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -667,14 +688,24 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel34.setText("Nave Tripulada");
 
-        jLabel35.setText("Lugar de Destino:");
+        jLabel35.setText("Lugar de Despeje:");
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane4.setViewportView(jList1);
+        jl_misAstronautas.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jl_misAstronautas);
 
         jb_pasar.setText("----->");
+        jb_pasar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_pasarMouseClicked(evt);
+            }
+        });
 
         jb_listo.setText("Listo");
+        jb_listo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_listoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_naveTripuladaLayout = new javax.swing.GroupLayout(jd_naveTripulada.getContentPane());
         jd_naveTripulada.getContentPane().setLayout(jd_naveTripuladaLayout);
@@ -766,6 +797,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jt_planeta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_planetaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jt_planeta);
 
         jLabel1.setText("Planeta:");
@@ -786,6 +822,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jt_astronauta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_astronautaMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jt_astronauta);
@@ -869,6 +910,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     private void jb_adminNavesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminNavesMouseClicked
         // TODO add your handling code here:
+        llenarComboBoxPlanetas();
         jd_crearNave.pack();
         jd_crearNave.setModal(true);
         jd_crearNave.setLocationRelativeTo(this);
@@ -938,11 +980,18 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
             Planeta nuevoPlaneta = new Planeta(nombre, temperaturaMedia, anillos, tipoSuperficie, distanciaAtierra);
             AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+            ap.cargarArchivo();
             ap.setPlaneta(nuevoPlaneta);
             ap.escribirArchivo();
             llenarTablaPlanetas();
             JOptionPane.showMessageDialog(jd_crearPlaneta, "Se ha creado un planeta");
 
+            jt_nombrePlaneta.setText("");
+            jt_temperaturaMedia.setText("");
+            rb_si.setSelected(true);
+            rb_no.setSelected(false);
+            jt_tipoSuperficie.setText("");
+            jt_distanciaTierra.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jd_crearPlaneta, "Ocurrió un error fatal");
         }
@@ -951,7 +1000,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private void jb_CREARnaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CREARnaveMouseClicked
         // TODO add your handling code here:
         try {
-
+            numeroSerie = Integer.parseInt(jt_numeroSerie.getText());
+            planetaDestino = (Planeta) cb_planetas.getSelectedItem();
+            velocidad = Double.parseDouble(jt_velocidad.getText());
+            if (rb_sondaEspacial.isSelected()) {
+                String material = JOptionPane.showInputDialog("Ingrese el material de la nave");
+                double peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el peso de la nave"));
+                SondaEspacial nuevaSonda = new SondaEspacial(material, peso, numeroSerie, planetaDestino, velocidad);
+                AdministrarNaveEspacial an = new AdministrarNaveEspacial("./Naves.cans");
+                an.cargarArchivo();
+                an.setNaveEspacial(nuevaSonda);
+                an.escribirArchivo();
+                JOptionPane.showMessageDialog(jd_crearNave, "Se ha creado una Sonda Espacial");
+            }
+            if (rb_naveTripulada.isSelected()) {
+                llenarComboBoxAstronautas();
+                jd_naveTripulada.pack();
+                jd_naveTripulada.setModal(true);
+                jd_naveTripulada.setLocationRelativeTo(this);
+                jd_naveTripulada.setVisible(true);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jd_crearAstronauta, "Ocurrió un error fatal");
         }
@@ -985,14 +1053,14 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             llenarTablaAstronautas();
             JOptionPane.showMessageDialog(jd_modificarAstronauta, "Se ha modificado un astronauta");
 
-            jt_nombre.setText("");
-            jt_nacionalidad.setText("");
-            jt_sueldo.setText("");
-            sp_añosExperiencia.setValue(0);
-            rb_masculino.setSelected(true);
-            rb_femenino.setSelected(false);
-            rb_otro.setSelected(false);
-            jt_peso.setText("");
+            jt_nombreModificar.setText("");
+            jt_nacionalidadModificar.setText("");
+            jt_sueldoModificar.setText("");
+            sp_añosExperienciaModificar.setValue(0);
+            rb_masculino1.setSelected(true);
+            rb_femenino1.setSelected(false);
+            rb_otro1.setSelected(false);
+            jt_pesoModificar.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jd_modificarAstronauta, "Ocurrió un error fatal");
         }
@@ -1001,11 +1069,139 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private void jb_modifcarPlanetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modifcarPlanetaMouseClicked
         // TODO add your handling code here:
         try {
+            int seleccionado = jt_planeta.getSelectedRow();
+            String nombre = jt_nombrePlanetaModificar.getText();
+            double temperaturaMedia = Double.parseDouble(jt_temperaturaMediamodificar.getText());
+            String anillos = "";
+            if (rb_si1.isSelected()) {
+                anillos = "Si";
+            } else {
+                anillos = "No";
+            }
+            String tipoSuperficie = jt_tipoSuperficieModifcar.getText();
+            double distanciaAtierra = Double.parseDouble(jt_distanciaTierramodifcar.getText());
 
+            Planeta nuevoPlaneta = new Planeta(nombre, temperaturaMedia, anillos, tipoSuperficie, distanciaAtierra);
+            AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+            ap.cargarArchivo();
+            ap.getlistaPlanetas().set(seleccionado, nuevoPlaneta);
+            ap.escribirArchivo();
+            llenarTablaPlanetas();
+            JOptionPane.showMessageDialog(jd_modificarPlaneta, "Se ha modificado un planeta");
+
+            jt_nombrePlanetaModificar.setText("");
+            jt_temperaturaMediamodificar.setText("");
+            rb_si1.setSelected(true);
+            rb_no1.setSelected(false);
+            jt_tipoSuperficieModifcar.setText("");
+            jt_distanciaTierramodifcar.setText("");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(jd_crearAstronauta, "Ocurrió un error fatal");
+            JOptionPane.showMessageDialog(jd_modificarPlaneta, "Ocurrió un error fatal");
         }
     }//GEN-LAST:event_jb_modifcarPlanetaMouseClicked
+
+    private void jb_listoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listoMouseClicked
+        // TODO add your handling code here:
+        try {
+            String lugarDespeje = jt_lugarDestino.getText();
+            ArrayList<Astronauta> temporal = new ArrayList();
+            DefaultListModel modeloLista = (DefaultListModel) jl_misAstronautas.getModel();
+            for (int i = 0; i < modeloLista.getSize(); i++) {
+                temporal.add((Astronauta) modeloLista.get(i));
+            }
+            NaveTripulada naveTripulada = new NaveTripulada(lugarDespeje, numeroSerie, planetaDestino, velocidad);
+            naveTripulada.setListaAstronautas(temporal);
+            AdministrarNaveEspacial an = new AdministrarNaveEspacial("./Naves.cans");
+            an.cargarArchivo();
+            an.setNaveEspacial(naveTripulada);
+            an.escribirArchivo();
+            JOptionPane.showMessageDialog(jd_naveTripulada, "Se ha creado una nave tripulada");
+
+            jt_lugarDestino.setText("");
+            jl_misAstronautas.setModel(new DefaultListModel());
+
+            jd_crearNave.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_naveTripulada, "Ocurrio un error fatal");
+        }
+
+    }//GEN-LAST:event_jb_listoMouseClicked
+
+    private void jb_pasarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_pasarMouseClicked
+        // TODO add your handling code here:
+        if (cb_astronautas.getSelectedItem() instanceof Astronauta) {
+            astrSeleccionado = (Astronauta) cb_astronautas.getSelectedItem();
+            DefaultListModel modeloLista = (DefaultListModel) jl_misAstronautas.getModel();
+            modeloLista.addElement(astrSeleccionado);
+            jl_misAstronautas.setModel(modeloLista);
+        }
+    }//GEN-LAST:event_jb_pasarMouseClicked
+
+    private void jt_planetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_planetaMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            popUp_planeta.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_planetaMouseClicked
+
+    private void jt_astronautaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_astronautaMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            popUp_astronauta.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_astronautaMouseClicked
+
+    private void jmi_modificarPlanetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarPlanetaActionPerformed
+        // TODO add your handling code here:
+        if (jt_planeta.getSelectedRow() >= 0) {
+            jd_modificarPlaneta.pack();
+            jd_modificarPlaneta.setModal(true);
+            jd_modificarPlaneta.setLocationRelativeTo(this);
+            jd_modificarPlaneta.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe escoger un planeta");
+        }
+    }//GEN-LAST:event_jmi_modificarPlanetaActionPerformed
+
+    private void jmi_modificarAstronautaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarAstronautaActionPerformed
+        // TODO add your handling code here:
+        if (jt_astronauta.getSelectedRow() >= 0) {
+            jd_modificarAstronauta.pack();
+            jd_modificarAstronauta.setModal(true);
+            jd_modificarAstronauta.setLocationRelativeTo(this);
+            jd_modificarAstronauta.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe escoger un astronauta");
+        }
+    }//GEN-LAST:event_jmi_modificarAstronautaActionPerformed
+
+    private void jmi_eliminarPlanetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarPlanetaActionPerformed
+        // TODO add your handling code here:
+        if (jt_planeta.getSelectedRow() >= 0) {
+            AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
+            ap.cargarArchivo();
+            ap.getlistaPlanetas().remove(jt_planeta.getSelectedRow());
+            ap.escribirArchivo();
+            llenarTablaPlanetas();
+            JOptionPane.showMessageDialog(this, "Se ha eliminado un planeta");
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe escoger un planeta");
+        }
+    }//GEN-LAST:event_jmi_eliminarPlanetaActionPerformed
+
+    private void jmi_eliminarAstronautaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarAstronautaActionPerformed
+        // TODO add your handling code here:
+        if (jt_astronauta.getSelectedRow() >= 0) {
+            AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
+            aas.cargarArchivo();
+            aas.getListaAstronauta().remove(jt_astronauta.getSelectedRow());
+            aas.escribirArchivo();
+            llenarTablaAstronautas();
+            JOptionPane.showMessageDialog(this, "Se ha eliminado un astronauta");
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe escoger un planeta");
+        }
+    }//GEN-LAST:event_jmi_eliminarAstronautaActionPerformed
 
     public void llenarTablaAstronautas() {
         AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
@@ -1041,7 +1237,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     public void llenarTablaPlanetas() {
         AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
         ap.cargarArchivo();
-        
+
         jt_planeta.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
@@ -1051,6 +1247,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             boolean[] canEdit = new boolean[]{
                 false, false, false, false, false
             };
+
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
             }
@@ -1067,8 +1264,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             jt_planeta.setModel(modeloTabla);
         }
     }
-    
-    public void llenarComboBoxPlanetas(){
+
+    public void llenarComboBoxPlanetas() {
         AdministrarPlaneta ap = new AdministrarPlaneta("./Planetas.cans");
         ap.cargarArchivo();
         DefaultComboBoxModel modeloComboBox = new DefaultComboBoxModel(ap.getlistaPlanetas().toArray());
@@ -1117,6 +1314,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
     }
 
+    Astronauta astrSeleccionado;
+    int numeroSerie;
+    Planeta planetaDestino;
+    double velocidad;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -1160,7 +1361,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1180,6 +1380,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificarAstronauta;
     private javax.swing.JDialog jd_modificarPlaneta;
     private javax.swing.JDialog jd_naveTripulada;
+    private javax.swing.JList<String> jl_misAstronautas;
     private javax.swing.JMenuItem jmi_eliminarAstronauta;
     private javax.swing.JMenuItem jmi_eliminarPlaneta;
     private javax.swing.JMenuItem jmi_modificarAstronauta;
