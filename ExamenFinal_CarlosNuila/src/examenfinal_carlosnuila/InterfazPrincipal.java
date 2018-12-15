@@ -146,7 +146,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jt_naves = new javax.swing.JTable();
         jb_iniciarExpedicion = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_expedicion = new javax.swing.JTable();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
 
@@ -851,19 +851,21 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jt_naves);
 
         jb_iniciarExpedicion.setText("Iniciar Expedición");
+        jb_iniciarExpedicion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_iniciarExpedicionMouseClicked(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_expedicion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nave", "LLegó", "Regresó"
             }
         ));
-        jScrollPane5.setViewportView(jTable1);
+        jScrollPane5.setViewportView(jt_expedicion);
 
         jLabel36.setText("Naves:");
 
@@ -898,22 +900,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         .addComponent(jb_adminAstronauta)
                         .addGap(22, 22, 22)
                         .addComponent(jb_adminNaves)
-                        .addGap(26, 26, 26)
-                        .addComponent(jb_iniciarExpedicion)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_adminPlaneta)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_adminPlaneta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_iniciarExpedicion)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jb_iniciarExpedicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_adminPlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jb_adminNaves, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_adminAstronauta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jb_adminPlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jb_iniciarExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jb_adminAstronauta, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_adminNaves, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -930,7 +936,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1063,7 +1069,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                     an.escribirArchivo();
                     JOptionPane.showMessageDialog(jd_crearNave, "Se ha creado una Sonda Espacial");
                     llenarTablaNaves();
-                    
+
                     jt_numeroSerie.setText("");
                     cb_planetas.setSelectedIndex(0);
                     jt_velocidad.setText("");
@@ -1270,6 +1276,21 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmi_eliminarAstronautaActionPerformed
 
+    private void jb_iniciarExpedicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciarExpedicionMouseClicked
+        // TODO add your handling code here:
+        if (jt_naves.getSelectedRow() >= 0) {
+            AdministrarNaveEspacial an = new AdministrarNaveEspacial("./Naves.cans");
+            an.cargarArchivo();
+            if (an.getlistaNaveEspacial().get(jt_naves.getSelectedRow()) instanceof NaveTripulada){
+                
+            } else{
+                
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una nave");
+        }
+    }//GEN-LAST:event_jb_iniciarExpedicionMouseClicked
+
     public void llenarTablaAstronautas() {
         AdministrarAstronauta aas = new AdministrarAstronauta("./Astronautas.cans");
         aas.cargarArchivo();
@@ -1457,7 +1478,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_CREARnave;
     private javax.swing.JButton jb_CREARplaneta;
     private javax.swing.JButton jb_adminAstronauta;
@@ -1482,6 +1502,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jt_astronauta;
     private javax.swing.JTextField jt_distanciaTierra;
     private javax.swing.JTextField jt_distanciaTierramodifcar;
+    private javax.swing.JTable jt_expedicion;
     private javax.swing.JTextField jt_lugarDestino;
     private javax.swing.JButton jt_modificarAstronuata;
     private javax.swing.JTextField jt_nacionalidad;
