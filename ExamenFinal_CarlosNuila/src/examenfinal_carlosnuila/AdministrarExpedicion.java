@@ -19,12 +19,12 @@ public class AdministrarExpedicion extends Thread {
     private NaveTripulada naveTripulada;
     private SondaEspacial sondaEspacial;
     private JTable tabla;
-    private boolean avanzar;
     private boolean vive;
     private int flag;
     private int posicionEnTabla;
     private long tiempoida;
     private long tiempoVuelta;
+    private long tiempito;
     private ArrayList<Double> tiempo;
 
     public AdministrarExpedicion(SondaEspacial sondaEspacial, boolean avanzar, JTable tabla) {
@@ -44,14 +44,6 @@ public class AdministrarExpedicion extends Thread {
         tiempo = naveTripulada.calcularTiempo(naveTripulada.getPlanetaDestino().getDistanciaAtierra());
     }
 
-    public boolean isAvanzar() {
-        return avanzar;
-    }
-
-    public void setAvanzar(boolean avanzar) {
-        this.avanzar = avanzar;
-    }
-
     public boolean isVive() {
         return vive;
     }
@@ -64,12 +56,75 @@ public class AdministrarExpedicion extends Thread {
     public void run() {
         tiempoida = Math.round(tiempo.get(0) * 1000);
         tiempoVuelta = Math.round(tiempo.get(1) * 1000);
+        tiempito = 0;
         System.out.println(tiempoida);
         System.out.println(tiempoVuelta);
         while (vive) {
             DefaultTableModel modeloTabla = (DefaultTableModel) tabla.getModel();
-            if (flag == 0){
-                
+            if (flag == 0) {
+                String[] temporal = new String[3];
+                if (naveTripulada != null) {
+                    temporal[0] = "Nave Tripulada";
+                }
+                if (sondaEspacial != null) {
+                    temporal[0] = "Sonda Espacial";
+                }
+                temporal[1] = "No";
+                temporal[2] = "No";
+                posicionEnTabla = modeloTabla.getRowCount() - 1;
+                modeloTabla.removeRow(posicionEnTabla);
+                modeloTabla.addRow(temporal);
+                tabla.setModel(modeloTabla);
+                tiempito++;
+                if (tiempito == tiempoida) {
+                    flag = 1;
+                    tiempito = 0;
+                    String[] temporal1 = new String[3];
+                    if (naveTripulada != null) {
+                        temporal[0] = "Nave Tripulada";
+                    }
+                    if (sondaEspacial != null) {
+                        temporal[0] = "Sonda Espacial";
+                    }
+                    temporal[1] = "Sí";
+                    temporal[2] = "No";
+                    posicionEnTabla = modeloTabla.getRowCount() - 1;
+                    modeloTabla.removeRow(posicionEnTabla);
+                    modeloTabla.addRow(temporal);
+                    tabla.setModel(modeloTabla);
+                }
+            }
+            if (flag == 1) {
+                String[] temporal = new String[3];
+                if (naveTripulada != null) {
+                    temporal[0] = "Nave Tripulada";
+                }
+                if (sondaEspacial != null) {
+                    temporal[0] = "Sonda Espacial";
+                }
+                temporal[1] = "Sí";
+                temporal[2] = "No";
+                posicionEnTabla = modeloTabla.getRowCount() - 1;
+                modeloTabla.removeRow(posicionEnTabla);
+                modeloTabla.addRow(temporal);
+                tabla.setModel(modeloTabla);
+                tiempito++;
+                if (tiempito == tiempoVuelta) {
+                    String[] temporal2 = new String[3];
+                    if (naveTripulada != null) {
+                        temporal[0] = "Nave Tripulada";
+                    }
+                    if (sondaEspacial != null) {
+                        temporal[0] = "Sonda Espacial";
+                    }
+                    temporal[1] = "Sí";
+                    temporal[2] = "Sí";
+                    posicionEnTabla = modeloTabla.getRowCount() - 1;
+                    modeloTabla.removeRow(posicionEnTabla);
+                    modeloTabla.addRow(temporal);
+                    tabla.setModel(modeloTabla);
+                    vive = false;
+                }
             }
             try {
                 Thread.sleep(1000);
