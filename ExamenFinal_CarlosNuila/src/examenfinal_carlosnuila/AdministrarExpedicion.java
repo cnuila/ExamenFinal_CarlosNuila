@@ -27,7 +27,7 @@ public class AdministrarExpedicion extends Thread {
     private long tiempito;
     private ArrayList<Double> tiempo;
 
-    public AdministrarExpedicion(SondaEspacial sondaEspacial, boolean avanzar, JTable tabla) {
+    public AdministrarExpedicion(SondaEspacial sondaEspacial, JTable tabla) {
         this.sondaEspacial = sondaEspacial;
         this.tabla = tabla;
         vive = true;
@@ -36,7 +36,7 @@ public class AdministrarExpedicion extends Thread {
 
     }
 
-    public AdministrarExpedicion(NaveTripulada naveTripulada, boolean avanzar, JTable tabla) {
+    public AdministrarExpedicion(NaveTripulada naveTripulada, JTable tabla) {
         this.naveTripulada = naveTripulada;
         this.tabla = tabla;
         vive = true;
@@ -57,8 +57,6 @@ public class AdministrarExpedicion extends Thread {
         tiempoida = Math.round(tiempo.get(0) * 1000);
         tiempoVuelta = Math.round(tiempo.get(1) * 1000);
         tiempito = 0;
-        System.out.println(tiempoida);
-        System.out.println(tiempoVuelta);
         while (vive) {
             DefaultTableModel modeloTabla = (DefaultTableModel) tabla.getModel();
             if (flag == 0) {
@@ -71,10 +69,16 @@ public class AdministrarExpedicion extends Thread {
                 }
                 temporal[1] = "No";
                 temporal[2] = "No";
-                posicionEnTabla = modeloTabla.getRowCount() - 1;
-                modeloTabla.removeRow(posicionEnTabla);
-                modeloTabla.addRow(temporal);
-                tabla.setModel(modeloTabla);
+                if (modeloTabla.getRowCount() == 0) {
+                    modeloTabla.addRow(temporal);
+                    tabla.setModel(modeloTabla);
+                } else {
+                    posicionEnTabla = modeloTabla.getRowCount() - 1;
+                    modeloTabla.removeRow(posicionEnTabla);
+                    modeloTabla.addRow(temporal);
+                    tabla.setModel(modeloTabla);
+                }
+
                 tiempito++;
                 if (tiempito == tiempoida) {
                     flag = 1;
@@ -90,7 +94,7 @@ public class AdministrarExpedicion extends Thread {
                     temporal[2] = "No";
                     posicionEnTabla = modeloTabla.getRowCount() - 1;
                     modeloTabla.removeRow(posicionEnTabla);
-                    modeloTabla.addRow(temporal);
+                    modeloTabla.addRow(temporal1);
                     tabla.setModel(modeloTabla);
                 }
             }
@@ -104,8 +108,10 @@ public class AdministrarExpedicion extends Thread {
                 }
                 temporal[1] = "Sí";
                 temporal[2] = "No";
-                posicionEnTabla = modeloTabla.getRowCount() - 1;
-                modeloTabla.removeRow(posicionEnTabla);
+                if (modeloTabla.getRowCount() != 0) {
+                    posicionEnTabla = modeloTabla.getRowCount() -1 ;
+                    modeloTabla.removeRow(posicionEnTabla);
+                }
                 modeloTabla.addRow(temporal);
                 tabla.setModel(modeloTabla);
                 tiempito++;
@@ -119,29 +125,27 @@ public class AdministrarExpedicion extends Thread {
                     }
                     temporal[1] = "Sí";
                     temporal[2] = "Sí";
-                    posicionEnTabla = modeloTabla.getRowCount() - 1;
+                    posicionEnTabla = modeloTabla.getRowCount() -1;
                     modeloTabla.removeRow(posicionEnTabla);
-                    modeloTabla.addRow(temporal);
+                    modeloTabla.addRow(temporal2);
                     tabla.setModel(modeloTabla);
                     vive = false;
                 }
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
+            if (naveTripulada != null) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
 
+                }
+            } else {
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException ex) {
+
+                }
             }
         }
-    }
-
-    public void llenarTabla() {
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "Nave", "LLegó", "Regresó"
-                }
-        ));
-
     }
 
 }

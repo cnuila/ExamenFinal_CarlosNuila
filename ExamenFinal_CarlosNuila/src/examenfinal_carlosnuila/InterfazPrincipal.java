@@ -1282,9 +1282,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             AdministrarNaveEspacial an = new AdministrarNaveEspacial("./Naves.cans");
             an.cargarArchivo();
             if (an.getlistaNaveEspacial().get(jt_naves.getSelectedRow()) instanceof NaveTripulada){
-                
+                AdministrarExpedicion ae = new AdministrarExpedicion((NaveTripulada)an.getlistaNaveEspacial().get(jt_naves.getSelectedRow()),jt_expedicion);
+                ae.start();
             } else{
-                
+                AdministrarExpedicion ae = new AdministrarExpedicion((SondaEspacial)an.getlistaNaveEspacial().get(jt_naves.getSelectedRow()), jt_expedicion);
+                ae.start();
             }
         } else {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una nave");
